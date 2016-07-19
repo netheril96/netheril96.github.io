@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <title>Type support - autojsoncxx</title>
+  
+
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Type support";
+    var mkdocs_page_input_path = "user_guide/type_support.md";
+    var mkdocs_page_url = "/user_guide/type_support/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+  <script src="../../js/theme.js"></script> 
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> autojsoncxx</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../..">Home</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../../tutorial/">Tutorial</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>User guide</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../definition_file_syntax/">Definition file syntax</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../error_handling/">Error handling</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../miscellaneous/">Miscellaneous</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Type support</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#type-support">Type support</a></li>
+                
+                    <li><a class="toctree-l4" href="#predefined-types">Predefined types</a></li>
+                
+                    <li><a class="toctree-l4" href="#nested-types">Nested types</a></li>
+                
+                    <li><a class="toctree-l4" href="#self-defined-type">Self defined type</a></li>
+                
+                    <li><a class="toctree-l4" href="#special-types">Special types</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">autojsoncxx</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>User guide &raquo;</li>
+        
+      
+    
+    <li>Type support</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          <a href="https://github.com/netheril96/autojsoncxx" class="icon icon-github"> Edit on GitHub</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h2 id="type-support">Type support</h2>
+<h3 id="predefined-types">Predefined types</h3>
+<h4 id="standard-library">Standard library</h4>
+<p>These types are supported by this library:</p>
+<ul>
+<li>Basic types: <code>bool</code>, <code>char</code>, <code>int</code>, <code>unsigned int</code>, <code>long long</code>, <code>unsigned long long</code>, <code>std::string</code></li>
+<li>Array types: <code>std::vector&lt;&gt;</code>, <code>std::deque&lt;&gt;</code>, <code>std::array&lt;&gt;</code>, <code>std::tuple&lt;&gt;</code> (this one needs special care)</li>
+<li>Nullable types: <code>std::nullptr_t</code>, <code>std::unique_ptr&lt;&gt;</code>, <code>std::shared_ptr&lt;&gt;</code></li>
+<li>Map types: <code>std::map&lt;&gt;</code>, <code>std::unordered_map&lt;&gt;</code>, <code>std::multimap&lt;&gt;</code>, <code>std::unordered_multimap&lt;&gt;</code> (The key must be of string type)</li>
+<li>Object types: any class generated by the script <em>autojsoncxx.py</em>.</li>
+<li>DOM: <code>rapidjson::Document</code></li>
+</ul>
+<p>Notes: </p>
+<ul>
+<li><code>char</code> is mapped to JSON <code>Boolean</code> type, the same as <code>bool</code>. </li>
+</ul>
+<h4 id="boost">Boost</h4>
+<p>If you include <code>&lt;autojsoncxx/boost_types.hpp&gt;</code> (a relatively new <code>boost</code> is required), you will also get support for</p>
+<ul>
+<li>Array types: <code>boost::container::vector&lt;&gt;</code>, <code>boost::container::deque&lt;&gt;</code>, <code>boost::array</code></li>
+<li>Nullable types: <code>boost::shared_ptr&lt;&gt;</code>, <code>boost::optional&lt;&gt;</code></li>
+<li>Map types: <code>boost::unordered_map&lt;&gt;</code>, <code>boost::unordered_multimap&lt;&gt;</code> (The key must be of string type)</li>
+</ul>
+<h4 id="caveat">Caveat</h4>
+<p><strong>No raw pointer and reference types are supported. Use smart pointers instead</strong>. They do not convey any information about ownership, and will make correct memory management (especially by a code generator) much more difficult.</p>
+<h3 id="nested-types">Nested types</h3>
+<p>The supported types can be arbitrarily nested, for example</p>
+<pre><code class="c++">#define AUTOJSONCXX_MODERN_COMPILER 1 
+#include &lt;iostream&gt;
+#include &quot;person.hpp&quot;
+
+int main()
+{
+    auto test = std::make_tuple(std::vector&lt;std::string&gt;{ &quot;A&quot;, &quot;BC&quot;, &quot;DEF&quot; }, nullptr,
+                                3.1415926, -223, std::shared_ptr&lt;int&gt;(),
+                                std::map&lt;std::string, bool&gt;{ { &quot;a&quot;, true }, 
+                                                           { &quot;Δ&quot;, false } },
+                                std::make_shared&lt;std::array&lt;Person, 2&gt;&gt;());
+
+    std::string str;
+
+    // This requires true variadic template support 
+    // MSVC 2012 has std::tuple&lt;&gt;, but it is faked with macros
+    // Avoid std::tuple&lt;&gt; if your compiler is not strong enough
+    autojsoncxx::to_pretty_json_string(str, test);
+
+    std::cout &lt;&lt; str &lt;&lt; '\n';
+    return 0;
+}
+</code></pre>
+
+<p>Sample output</p>
+<pre><code class="javascript">[
+    [
+        &quot;A&quot;,
+        &quot;BC&quot;,
+        &quot;DEF&quot;
+    ],
+    null,
+    3.1415926,
+    -223,
+    null,
+    {
+        &quot;a&quot;: true,
+        &quot;Δ&quot;: false
+    },
+    [
+        {
+            &quot;ID&quot;: 0,
+            &quot;name&quot;: &quot;anonymous&quot;,
+            &quot;height&quot;: 0.0,
+            &quot;weight&quot;: 0.0,
+            &quot;known_associates&quot;: []
+        },
+        {
+            &quot;ID&quot;: 0,
+            &quot;name&quot;: &quot;anonymous&quot;,
+            &quot;height&quot;: 0.0,
+            &quot;weight&quot;: 0.0,
+            &quot;known_associates&quot;: []
+        }
+    ]
+]
+</code></pre>
+
+<h3 id="self-defined-type">Self defined type</h3>
+<p>The core of the library is two template class, <code>SAXEventHandler</code> and <code>Serializer</code>. The base templates are defined as:</p>
+<pre><code class="c++">namespace autojsoncxx {
+
+// The core handlers for parsing
+template &lt;class T&gt;
+class SAXEventHandler;
+
+// Only the second parameter should be specialized
+template &lt;class Writer, class T&gt;
+struct Serializer;
+
+}
+</code></pre>
+
+<p>Each of the full or partial specialization of these templates will add new type support to the library. </p>
+<p>Writing the handler is somewhat difficult, because there are a multitude of errors that can result from a mismatched JSON. So there is some base classes provided, based on <em>Curiously Recurring Template Pattern</em>. For primitive types, such as a simple variant of <code>int</code> and <code>bool</code>, or string types (<code>QString</code>, <code>CString</code>, <code>icu::UnicodeString</code>, <code>YetAnotherStringThatIsSoMuchBetterThanTheRest</code>), derive from <code>BaseSAXEventHandler</code>. There are also base classes for array type <code>VectorBaseSAXEventHandler</code>, nullable type <code>NullableBaseSAXEventHandler</code>, map type <code>MapBaseSAXEventHandler</code>. If you implement your own string, you probably want to add map type support as well, because the default implementation is specialized on <code>std::string</code>.</p>
+<p>Writing the serializer is very easy, and one can easily figure it out by looking at the source code.</p>
+<h3 id="special-types">Special types</h3>
+<h4 id="tuple">Tuple</h4>
+<p>There are only one tuple type supported <code>std::tuple</code> (<code>boost::tuple</code> is not supported). Implementing it requires true variadic templates. If you want to use it, you need to define both <code>AUTOJSONCXX_HAS_MODERN_TYPES</code> and <code>AUTOJSONCXX_HAS_VARIADIC_TEMPLATE</code> to be nonzero. The macro <code>AUTOJSONCXX_MODERN_COMPILER</code> automatically turns on both two.</p>
+<p>The tuple type is mapped to a JSON array of heterogenous types. So <code>std::tuple&lt;int, std::string, double&gt;</code> maps to a JSON array of three element of type <code>Number</code>, <code>String</code>, and <code>Number</code> respectively.</p>
+<p>During parsing, only the prefix is matched. That is, if the JSON array is longer than the tuple size, the extraneous part will be silently dropped; if the JSON array is shorter than the tuple size, the not-mapped element simply remains untouched. This design is based on the assumption that when you need a heterogeneous array, you probably prioritize flexibility over strict conformance.</p>
+<h4 id="dom">DOM</h4>
+<p><code>rapidjson::Document</code> is the only DOM type supported. The envisioned use is to freely intermix static and dynamic typing. That is, part of a C++ struct is converted according to strict rules, while other part are flexibly handled.</p>
+<p>In addition, you can convert any supported type to/from a DOM object directly. The relevant functions are surprisingly named <code>autojsoncxx::to_document</code> and <code>autojsoncxx::from_document</code>.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="../miscellaneous/" class="btn btn-neutral" title="Miscellaneous"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/netheril96/autojsoncxx" class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../miscellaneous/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+    </span>
+</div>
+
+</body>
+</html>
